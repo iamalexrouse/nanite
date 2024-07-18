@@ -20,6 +20,10 @@
     "Converter",
     "lightweight"
   ],
+  "funding": {
+    "type": "patreon",
+    "url": "https://patreon.com/user?u=95671657"
+  },
   "author": "Alex Rouse <pendulumreal@gmail.com>",
   "license": "MIT",
   "devDependencies": {
