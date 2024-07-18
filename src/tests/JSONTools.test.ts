@@ -1,5 +1,5 @@
 import {describe, expect, test} from '@jest/globals';
-import {GetSpecificChildFromJSON, IsValidJSON, ReturnAsJsonObject} from '../JSONTools';
+import {GetSpecificChildValueFromJSON, GetValueTypeFromChild, IsValidJSON, ReturnAsJsonObject} from '../JSONTools';
 
 describe('JSONTools.js', () => {
     test("Parse's a JSON string and extracts the 'name' object.", () => {
@@ -16,6 +16,10 @@ describe('JSONTools.js', () => {
     });
 
     test("Gets a specific child from a JSON string.", () => {
-        expect(GetSpecificChildFromJSON('{"name":"alex","child":"this is a child"}', "child")).toBe("this is a child");
+        expect(GetSpecificChildValueFromJSON('{"name":"alex","child":"this is a child"}', "child")).toBe("this is a child");
+    });
+
+    test("Gets the type of child from the given JSON string. key 'number' should have returned 'number'.", () => {
+        expect(GetValueTypeFromChild('{"name":"alex","child":"this is a child","number":5}', "number")).toBe("number");
     });
 });
