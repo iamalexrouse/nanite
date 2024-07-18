@@ -10,3 +10,19 @@ export function IsValidJSON(Input: string): boolean {
         return false;
     }
 }
+
+export function GetSpecificChildFromJSON(Input: string, Target: string): any | undefined {
+    if (!IsValidJSON(Input))
+        return undefined;
+
+    if (!Target || Target === "") {
+        return undefined;
+    }
+
+    const JsonObject = ReturnAsJsonObject(Input);
+    
+    if (JsonObject[Target])
+        return JsonObject[Target];
+    else
+        return undefined;
+}
