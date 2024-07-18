@@ -20,7 +20,7 @@
     "Converter",
     "lightweight"
   ],
-  "author": "Alex Rouse",
+  "author": "Alex Rouse <pendulumreal@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/preset-typescript": "^7.24.7",
