@@ -8,3 +8,4 @@
 tsconfig.json
 tsup.config.ts
 *.config.js
+**/*.md
