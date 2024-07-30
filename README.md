@@ -10,8 +10,8 @@ Nanite is a lightweight, efficient Base64 to JSON solution. Nanite is designed a
 Getting started with Nanite is extremely easy.
 
 Firstly, install Nanite using the following command:
-```bash
-npm install @leronixlabs/nanite
+```console
+user@nanite:~$ npm install @leronixlabs/nanite
 ```
 
 Then, you can use Nanite in your project like so:
