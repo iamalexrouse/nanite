@@ -29,7 +29,4 @@ export function FromJson(Input: string): IEncodingResult {
     }
 }
 
-export interface IEncodingResult {
-    result: boolean;
-    message: string;
-} */
+*/
