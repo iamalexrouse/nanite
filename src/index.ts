@@ -13,10 +13,8 @@ export function JSONToBase64(Input: string): string {
     }
 }
 
-/*
-
-!! DO NOT USE JUST YET !!
-I need to finish rewriting some methods then the transition will happen.
+// !! DO NOT USE JUST YET !!
+// I need to finish rewriting some methods then the transition will happen.
 
 export function FromBase64(Input: string, Encoding: string = 'utf8'): string {
     return Buffer.from(Input, 'base64').toString(Encoding);
@@ -30,5 +28,3 @@ export function FromJson(Input: string): IEncodingResult {
         return { result: false, message: ex }
     }
 }
-
-*/
