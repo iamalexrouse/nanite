@@ -16,8 +16,12 @@ export function JSONToBase64(Input: string): string {
 // !! DO NOT USE JUST YET !!
 // I need to finish rewriting some methods then the transition will happen.
 
-export function FromBase64(Input: string, Encoding: BufferEncoding = 'utf8'): string {
-    return Buffer.from(Input, 'base64').toString(Encoding);
+export function FromBase64(Input: string, Encoding: BufferEncoding = 'utf-8'): IEncodingResult {
+    try {
+        return { result: true, message: Buffer.from(Input, 'base64').toString(Encoding) }
+    } catch (error: any) {
+        return { result: true, message: error.message }
+    }
 }
 
 export function FromJson(Input: string): IEncodingResult {
