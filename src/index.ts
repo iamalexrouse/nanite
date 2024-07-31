@@ -1,3 +1,5 @@
+import { IEncodingResult } from './IEncodingResult';
+
 export function Base64ToJSON(Input: string): string {
     return Buffer.from(Input, 'base64').toString();
 }
