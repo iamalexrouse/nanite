@@ -24,7 +24,7 @@ export function FromJson(Input: string): IEncodingResult {
     try {
         const content = JSON.parse(Input);
         return { result: true, message: Buffer.from(JSON.stringify(content)).toString('base64') }
-    } catch (ex: Error) {
+    } catch (ex: any) {
         return { result: false, message: ex.message }
     }
 }
