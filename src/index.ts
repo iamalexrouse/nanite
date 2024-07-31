@@ -16,7 +16,7 @@ export function JSONToBase64(Input: string): string {
 // !! DO NOT USE JUST YET !!
 // I need to finish rewriting some methods then the transition will happen.
 
-export function FromBase64(Input: string, Encoding: string = 'utf8'): string {
+export function FromBase64(Input: string, Encoding: BufferEncoding = 'utf8'): string {
     return Buffer.from(Input, 'base64').toString(Encoding);
 }
 
