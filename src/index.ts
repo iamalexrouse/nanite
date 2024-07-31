@@ -23,8 +23,8 @@ export function FromBase64(Input: string, Encoding: BufferEncoding = 'utf8'): st
 export function FromJson(Input: string): IEncodingResult {
     try {
         const content = JSON.parse(Input);
-        return { result: true, message: Buffer.from(JSON.stringify(content)).toString('base64'); }
+        return { result: true, message: Buffer.from(JSON.stringify(content)).toString('base64') }
     } catch (ex) {
-        return { result: false, message: ex }
+        return { result: false, message: ex.message }
     }
 }
