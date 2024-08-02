@@ -1,4 +1,4 @@
-export interface IEncodingResult {
+export interface IResult {
     result: boolean;
     message: string;
 }

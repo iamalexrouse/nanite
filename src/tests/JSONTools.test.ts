@@ -1,7 +1,7 @@
 import {describe, expect, test} from '@jest/globals';
 import {GetSpecificChildValueFromJSON, GetValueTypeFromChild, IsValidJSON, ReturnAsJsonObject} from '../JSONTools';
 
-describe('JSONTools.js', () => {
+describe('Nanite | Tests | JSON Utilities', () => {
     test("Parse's a JSON string and extracts the 'name' object.", () => {
         const nameResult = ReturnAsJsonObject('{"name":"alex"}');
         expect(nameResult['name']).toBe('alex');

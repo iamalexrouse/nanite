@@ -1,5 +1,5 @@
 import { resolveObjectURL } from 'buffer';
-import { IEncodingResult } from './IEncodingResult';
+import { IResult } from './IResult';
 
 /**
  * @deprecated Base64ToJSON is no longer supported, Use 'FromBase64' instead.
@@ -33,7 +33,7 @@ export function JSONToBase64(Input: string): string {
  * @param Encoding The encoding scheme to use.
  * @returns An encoded Json string.
  */
-export function FromBase64(Input: string, Encoding: BufferEncoding = 'utf-8'): IEncodingResult {
+export function FromBase64(Input: string, Encoding: BufferEncoding = 'utf-8'): IResult {
     try {
         return { result: true, message: Buffer.from(Input, 'base64').toString(Encoding) }
     } catch (error: any) {
@@ -46,26 +46,10 @@ export function FromBase64(Input: string, Encoding: BufferEncoding = 'utf-8'): I
  * @param Input The Json string to encode to Base64.
  * @returns Great an encoded Base64 string.
  */
-export function FromJson(Input: string): IEncodingResult {
+export function FromJson(Input: string): IResult {
     try {
         const content = JSON.parse(Input);
         return { result: true, message: Buffer.from(JSON.stringify(content)).toString('base64') }
-    } catch (ex: any) {
-        return { result: false, message: ex.message }
-    }
-}
-
-/**
- * 
- * @param Input The string to generate a hash for.
- * @returns A hash generated from the input.
- */
-export async function GenerateHash(Input: string, algorithm: AlgorithmIdentifier): Promise<IEncodingResult> {
-    try {
-        // Hours spent trying to remember writing this: 1
-        // Yes, I know this looks like absolute dogshit, I'm fully aware. You don't have to tell me.
-        // If you wish to fix this up, I'm fully open to someone fixing this.
-        return { result: true, message: Array.from(new Uint8Array(await crypto.subtle.digest(algorithm, new TextEncoder().encode(Input)))).map((bytes) => bytes.toString(16).padStart(2, '0')).join('') }
     } catch (ex: any) {
         return { result: false, message: ex.message }
     }
