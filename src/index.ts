@@ -1,3 +1,4 @@
+import { resolveObjectURL } from 'buffer';
 import { IEncodingResult } from './IEncodingResult';
 
 /**
@@ -49,6 +50,22 @@ export function FromJson(Input: string): IEncodingResult {
     try {
         const content = JSON.parse(Input);
         return { result: true, message: Buffer.from(JSON.stringify(content)).toString('base64') }
+    } catch (ex: any) {
+        return { result: false, message: ex.message }
+    }
+}
+
+/**
+ * 
+ * @param Input The string to generate a hash for.
+ * @returns A hash generated from the input.
+ */
+export async function GenerateHash(Input: string, algorithm: AlgorithmIdentifier): Promise<IEncodingResult> {
+    try {
+        // Hours spent trying to remember writing this: 1
+        // Yes, I know this looks like absolute dogshit, I'm fully aware. You don't have to tell me.
+        // If you wish to fix this up, I'm fully open to someone fixing this.
+        return { result: true, message: Array.from(new Uint8Array(await crypto.subtle.digest(algorithm, new TextEncoder().encode(Input)))).map((bytes) => bytes.toString(16).padStart(2, '0')).join('') }
     } catch (ex: any) {
         return { result: false, message: ex.message }
     }
